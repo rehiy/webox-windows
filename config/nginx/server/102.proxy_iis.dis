@@ -1,0 +1,20 @@
+server {
+
+    listen {XS.IPN}:80;
+
+    # 反向代理到IIS的域名
+    server_name iis.anrip.net;
+
+    # 缓存静态文件 
+    #location ~* \.(js|css|gif|jpg|jpeg|png|bmp|swf)$ {
+    #    proxy_pass http://127.1.1.1:80;
+    #    include common/31.server_proxy_cache;
+    #    expires 1d; 
+    #}
+
+    # 转发请求到IIS
+    location / {
+        proxy_pass http://127.1.1.1:80;
+    }
+
+}
