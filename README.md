@@ -1,33 +1,33 @@
-# Webox.xServer 使用手册
+# Webox.xServer ʹ���ֲ�
 
-功能: FTP + MYSQL + HTTP + PHP(FCGI)
+����: HTTP + Redis + MYSQL + PHP(FCGI)
 
-作者: 若海[mail@anrip.com] & 尛岢[mod@kerring.me]
+����: ����[mail@anrip.com] & ���[mod@kerring.me]
 
-主页: http://www.anrip.com
+��ҳ: http://www.anrip.com
 
-说明: xServer是业内首家通过CMD实现标准管理接口的集成化WEB开发环境
+˵��: xServer��ҵ���׼�ͨ��CMDʵ�ֱ�׼�����ӿڵļ��ɻ�WEB��������
 
-特性:
+����:
 
- - 支持php多版本切换或同时运行
+ - ֧��php��汾�л���ͬʱ����
 
- - 支持为站点配置独立php进程
+ - ֧��Ϊվ�����ö���php����
 
-### 安装向导
+### ��װ��
 
-1.解压到任意磁盘根目录，或其它不包含中文及特殊字符的目录
+1.��ѹ��������̸�Ŀ¼�����������������ļ������ַ���Ŀ¼
 
-2.如需兼容IIS服务，请运行runtime\httpcfg\iis.cmd修改IIS监听地址
+2.�������IIS����������runtime\httpcfg\iis.cmd�޸�IIS������ַ
 
-3.运行xServer.bat，选择[安装服务]，即可使用MYSQL+Nginx+PHP等服务
+3.����xServer.bat��ѡ��[��װ����]������ʹ��MYSQL+Nginx+PHP�ȷ���
 
-  Nginx 默认监听地址为 0.0.0.0:80
-  MySQL 默认监听地址为 127.0.0.1:3306
-  PHP56 默认监听地址为 127.0.0.1:9501
-  PHP71 默认监听地址为 127.0.0.1:9701
+  Nginx Ĭ�ϼ�����ַΪ 0.0.0.0:80
+  MySQL Ĭ�ϼ�����ַΪ 127.0.0.1:3306
+  PHP56 Ĭ�ϼ�����ַΪ 127.0.0.1:9501
+  PHP71 Ĭ�ϼ�����ַΪ 127.0.0.1:9701
 
-### 组件列表
+### ����б�
 
 Redis/3.2.100               https://github.com/dmajkic/redis/downloads
 
@@ -41,74 +41,74 @@ PHP/7.1.11                  http://windows.php.net/download
 PHP-redis/3.1.3             http://pecl.php.net/package/redis
 PHP-xdebug/2.5.5            http://pecl.php.net/package/xdebug
 
-### 常见问题
+### ��������
 
-警告：
-  若需修改服务器参数，请修改config目录内对应的文件
+���棺
+  �����޸ķ��������������޸�configĿ¼�ڶ�Ӧ���ļ�
 
-〇、如果管理模块
-1、config\*.php表示已经启用的模块
-2、config\*.dis表示已经禁用的模块
+�����������ģ��
+1��config\*.php��ʾ�Ѿ����õ�ģ��
+2��config\*.dis��ʾ�Ѿ����õ�ģ��
 
-一、如何建立新站点
-1.创建域名对应的网站目录，例如 webroot\net.anrip\www
+һ����ν�����վ��
+1.����������Ӧ����վĿ¼������ webroot\net.anrip\www
 
-二、如何管理MySQL
-1.使用浏览器访问http://127.0.0.1/dber.php
-2.服务器:127.0.0.1；帐户:root/密码:空
+������ι���MySQL
+1.ʹ�����������http://127.0.0.1/dber.php
+2.������:127.0.0.1���ʻ�:root/����:��
 
-三、如何切换PHP版本
-1.确保服务未安装，否则请[卸载服务]
-2.编辑config\phpye\phpye.ini修改进程池参数
-3.编辑Nginx配置etc/suffix/*.inc，修改为对应端口
-3.运行xServer.bat，选择[重建配置]，再选择[重启服务]
+��������л�PHP�汾
+1.ȷ������δ��װ��������[ж�ط���]
+2.�༭config\phpye\phpye.ini�޸Ľ��̳ز���
+3.�༭Nginx����etc/suffix/*.inc���޸�Ϊ��Ӧ�˿�
+3.����xServer.bat��ѡ��[�ؽ�����]����ѡ��[��������]
 
-四、如何修改WEB根目录
-1.编辑runtime\config.php，修改[XS.WEB]的值
-2.建立[XS.WEB]对应目录，并移动原WEB到[XS.WEB]目录
-3.运行xServer.bat，选择[重建配置]，再选择[重启服务]
+�ġ�����޸�WEB��Ŀ¼
+1.�༭runtime\config.php���޸�[XS.WEB]��ֵ
+2.����[XS.WEB]��ӦĿ¼�����ƶ�ԭWEB��[XS.WEB]Ŀ¼
+3.����xServer.bat��ѡ��[�ؽ�����]����ѡ��[��������]
 
-五、如何修改MySQL数据目录
-1.编辑runtime\config.php，修改[XS.SQL]的值
-2.建立[XS.SQL]对应目录，并移动原MySQL数据到[XS.SQL]目录
-3.运行xServer.bat，选择[重建配置]，再选择[重启服务]
+�塢����޸�MySQL����Ŀ¼
+1.�༭runtime\config.php���޸�[XS.SQL]��ֵ
+2.����[XS.SQL]��ӦĿ¼�����ƶ�ԭMySQL���ݵ�[XS.SQL]Ŀ¼
+3.����xServer.bat��ѡ��[�ؽ�����]����ѡ��[��������]
 
-### 更新日志
+### ������־
 
-2017年11月23日
-- 更新PHP5版本为5.6.32
-- 更新PHP7版本为7.1.11
-- 更新Nginx版本为1.12.2
+2017��11��23��
+- ����PHP5�汾Ϊ5.6.32
+- ����PHP7�汾Ϊ7.1.11
+- ����Nginx�汾Ϊ1.12.2
 
-2017年09月28日
-- 增加PHP5版本为5.6.31
+2017��09��28��
+- ����PHP5�汾Ϊ5.6.31
 
-2017年09月13日
-- 更新PHP版本为7.1.9
-- 更新MySQL版本为5.7.19
+2017��09��13��
+- ����PHP�汾Ϊ7.1.9
+- ����MySQL�汾Ϊ5.7.19
 
-2017年08月23日
-- 增加vc_redist_2013
+2017��08��23��
+- ����vc_redist_2013
 
-2017年07月13日
-- 更新PHP版本为7.1.7
-- 更新Nginx版本为1.12.1
+2017��07��13��
+- ����PHP�汾Ϊ7.1.7
+- ����Nginx�汾Ϊ1.12.1
 
-2017年05月27日
-- 将php57更改为php71
-- 还原配置文件编码
+2017��05��27��
+- ��php57����Ϊphp71
+- ��ԭ�����ļ�����
 
-2017年05月15日
-- 不再支持32位操作系统
-- 更新PHP版本为7.1.4
-- 更新Nginx版本为1.12.0
-- 更新MySQL版本为5.7.18
-- 更新Redis版本为3.2.100
+2017��05��15��
+- ����֧��32λ����ϵͳ
+- ����PHP�汾Ϊ7.1.4
+- ����Nginx�汾Ϊ1.12.0
+- ����MySQL�汾Ϊ5.7.18
+- ����Redis�汾Ϊ3.2.100
 
-2017年之前
-- 支持 Windows 32bit
-- 更新日志请下载32位兼容版查看
+2017��֮ǰ
+- ֧�� Windows 32bit
+- ������־������32λ���ݰ�鿴
 
-2015年之前
-- 支持 Windows XP +
-- 更新日志请下载XP兼容版查看
+2015��֮ǰ
+- ֧�� Windows XP +
+- ������־������XP���ݰ�鿴

@@ -3,7 +3,7 @@
 ::系统设置
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-title Webox.xServer 服务控制台 - v7.1123
+title Webox.xServer 服务控制台 - v7.1126
 
 cd /d %~dp0
 set root=%~dp0
@@ -40,10 +40,10 @@ call :check_vc2015
   for /l %%i in (1,1,5) do (
     if "%Step%"=="%%i" (
       if %Step%==1 call :create
-      if %Step%==2 call :allmod reboot
-      if %Step%==3 call :allmod remove
+      if %Step%==2 call :module reboot
+      if %Step%==3 call :module remove
       if %Step%==4 call :config
-      if %Step%==5 call :allmod configtest
+      if %Step%==5 call :module configtest
       call :check_error
       echo. && echo 操作完毕,稍后返回菜单...
       ping 127.1 -n 3 >nul
@@ -55,7 +55,7 @@ call :check_vc2015
 
 :create
   call :config
-  call :allmod create
+  call :module create
   goto :EOF
 
 :config
@@ -63,20 +63,13 @@ call :check_vc2015
   runtime\parser -n -f runtime\config.php
   goto :EOF
 
-::功能实现脚本
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:allmod
+:module
   set "mod=deploy\module.ini"
   for /f "eol=; tokens=1,2" %%h in (%mod%) do (
     if "%1"=="create" call :check_service %%i
-    call :module %%h %1
-  )
-  goto :EOF
-
-:module
-  if exist "module\%1\xsbin.bat" (
-    call module\%1\xsbin.bat app_%2
+    if exist "module\%%h\xsbin.bat" (
+      call module\%%h\xsbin.bat %1
+    )
   )
   goto :EOF
 
@@ -120,33 +113,33 @@ call :check_vc2015
   goto :EOF
 
 :check_vc2012
-    ECHO. && ECHO 测试VC运行库...
-    DIR %windir%\System32 | FIND /i /c "msvcr110.dll" >NUL || (
-        IF "%1"=="retry" (
-            ECHO 请手动安装VC++2012运行库!!!
-            PAUSE >NUL && EXIT
-        ) ELSE (
-            ECHO 正在尝试安装VC运行库...
-            START /w runtime\vc_redist_2012.exe /passive
-            CALL :check_vc2012 retry
+    echo. && echo 测试vc运行库...
+    dir %windir%\System32 | find /i /c "msvcr110.dll" >nul || (
+        if "%1"=="retry" (
+            echo 请手动安装VC++2012运行库!!!
+            pause >nul && exit
+        ) else (
+            echo 正在尝试安装VC运行库...
+            start /w runtime\vc_redist_2012.exe /passive
+            call :check_vc2012 retry
         )
     )
-    CLS && GOTO :EOF
+    cls && goto :EOF
 
 
 :check_vc2013
-    ECHO. && ECHO 测试VC运行库...
-    DIR %windir%\System32 | FIND /i /c "msvcr120.dll" >NUL || (
-        IF "%1"=="retry" (
-            ECHO 请手动安装VC++2013运行库!!!
-            PAUSE >NUL && EXIT
-        ) ELSE (
-            ECHO 正在尝试安装VC运行库...
-            START /w runtime\vc_redist_2013.exe /passive
-            CALL :check_vc2012 retry
+    echo. && echo 测试vc运行库...
+    dir %windir%\System32 | find /i /c "msvcr120.dll" >nul || (
+        if "%1"=="retry" (
+            echo 请手动安装VC++2013运行库!!!
+            pause >nul && exit
+        ) else (
+            echo 正在尝试安装VC运行库...
+            start /w runtime\vc_redist_2013.exe /passive
+            call :check_vc2012 retry
         )
     )
-    CLS && GOTO :EOF
+    cls && goto :EOF
 
 :check_vc2015
   echo. && echo 测试VC运行库...

@@ -50,9 +50,9 @@ pause >nul && exit
   )
   echo. && echo 正在安装PHP71服务...
   %xnssm% install %scName% %mroot%\xxfpm\fpm71.exe
-  %xnssm% set %scName% DisplayName "Webox PHP71 Server"
+  %xnssm% set %scName% DisplayName "Webox PHP71 Server" >nul
   for /f "eol=; tokens=1,2,3,4" %%h in (%xconf%) do (
-    %xnssm% set %scName% AppParameters \"%mroot%\php71.exe -c %mconf%\" -i %%h -p %%i -n %%j
+    %xnssm% set %scName% AppParameters \"%mroot%\php71.exe -c %mconf%\" -i %%h -p %%i -n %%j >nul
     break
   )
   call :app_start

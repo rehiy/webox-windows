@@ -49,8 +49,8 @@ pause >nul && exit
   )
   echo. && echo 正在安装Redis服务...
   %xnssm% install %scName% %mroot%\redis-server.exe
-  %xnssm% set %scName% DisplayName "Webox Redis Server"
-  %xnssm% set %scName% AppParameters %mconf%
+  %xnssm% set %scName% DisplayName "Webox Redis Server" >nul
+  %xnssm% set %scName% AppParameters %mconf% >nul
   call :app_start
   goto :EOF
 

@@ -49,8 +49,8 @@ pause >nul && exit
   )
   echo. && echo 正在安装MySQL服务...
   %xnssm% install %scName% %mroot%\bin\mysqld.exe
-  %xnssm% set %scName% DisplayName "Webox MySQL Server"
-  %xnssm% set %scName% AppParameters --defaults-file=%mconf%
+  %xnssm% set %scName% DisplayName "Webox MySQL Server" >nul
+  %xnssm% set %scName% AppParameters --defaults-file=%mconf% >nul
   call :app_start
   goto :EOF
 
