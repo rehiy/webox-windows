@@ -7,10 +7,11 @@ setlocal
 
 set mroot=%~dp0
 set mroot=%mroot:~0,-1%
-set mconf=%mroot:module=deploy%\nginx.conf
+set mconf=%mroot:module=deploy%\php.ini
 
 set xroot=%mroot:~0,-13%
 set xnssm=%xroot%\runtime\nssm.exe
+set xconf=%mroot:module=deploy%\xxfpm.ini
 
 call :app_runtime
 
@@ -39,50 +40,56 @@ pause >nul && exit
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :app_runtime
-  set scName=Webox-Nginx
+  set scName=Webox-PHP56
   goto :EOF
 
 :app_create
   if not exist "%mconf%" (
-    echo. && echo 错误: Nginx配置文件不存在...
+    echo. && echo 错误: PHP56配置文件不存在...
     goto :EOF
   )
-  echo. && echo 正在安装Nginx服务...
-  %xnssm% install %scName% %mroot%\nginx.exe
-  %xnssm% set %scName% DisplayName "Webox Nginx Server"
-  %xnssm% set %scName% AppParameters -p %mroot% -c %mconf%
+  echo. && echo 正在安装PHP56服务...
+  %xnssm% install %scName% %mroot%\xxfpm\fpm56.exe
+  %xnssm% set %scName% DisplayName "Webox PHP56 Server"
+  for /f "eol=; tokens=1,2,3,4" %%h in (%xconf%) do (
+    %xnssm% set %scName% AppParameters \"%mroot%\php56.exe -c %mconf%\" -i %%h -p %%i -n %%j
+    break
+  )
   call :app_start
   goto :EOF
 
 :app_remove
   call :app_stop
-  echo. && echo 正在卸载Nginx服务...
+  echo. && echo 正在卸载PHP56服务...
   %xnssm% remove %scName% confirm
   goto :EOF
 
 :app_start
-  echo. && echo 正在启动Nginx服务...
+  echo. && echo 正在启动PHP56服务...
   %xnssm% start %scName%
   call :app_progress
   goto :EOF
 
 :app_stop
-  echo. && echo 正在停止Nginx服务...
+  echo. && echo 正在停止PHP56服务...
   %xnssm% stop %scName%
+  taskkill /T /F /IM php5* >nul 2>nul
   goto :EOF
 
 :app_reboot
-  echo. && echo 正在重启Nginx服务...
-  %xnssm% restart %scName%
+  echo. && echo 正在重启PHP56服务...
+  %xnssm% stop %scName%
+  taskkill /T /F /IM php5* >nul 2>nul
+  %xnssm% start %scName%
   call :app_progress
   goto :EOF
 
 :app_progress
-  echo. && echo 正在检查Nginx进程...
-  ping 127.0.0.1 -n 5 >nul
-  tasklist | findstr nginx.exe >nul
+  echo. && echo 正在检查PHPye进程...
+  ping 127.0.0.1 -n 1 >nul
+  tasklist | findstr php56.exe >nul
   if %errorlevel% neq 0 (
-    echo 错误: Nginx启动失败
+    echo 错误: PHP56启动失败
   )
   goto :EOF
 
@@ -90,5 +97,4 @@ pause >nul && exit
   goto :EOF
 
 :app_configtest
-  call %mroot%\nginx.exe -p %mroot% -c %mconf% -t
   goto :EOF

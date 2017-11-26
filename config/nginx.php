@@ -1,7 +1,7 @@
 <?php
 
 $order = '99';
-$service = 'Anrip-Nginx';
+$service = 'Webox-Nginx';
 
 reConfig(
     XS_CFG.'/nginx',
@@ -12,5 +12,3 @@ reConfig(
         '{XS.WEB}' => XS_WEB,
     )
 );
-
-?>

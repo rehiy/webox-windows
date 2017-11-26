@@ -88,4 +88,17 @@ function aw_glob($path = './', $mark = '*', $full = false) {
     return $files;
 }
 
+//PHP配置文件合并工具
+function php_ini_merge($path) {
+    $string = '';
+    $target = $path.'/php.ini';
+    foreach(glob($path.'/php*.ini') as $ini) {
+        $string .= file_get_contents($ini)."\r\n";
+        unlink($ini);
+    }
+    $string = preg_replace('/[\r\n]+;.*/', '', $string);
+    file_put_contents($target, $string);
+    return $target;
+}
+
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 $order = '35';
-$service = 'Anrip-Redis';
+$service = 'Webox-Redis';
 
 reConfig(
     XS_CFG.'/redis',
@@ -11,5 +11,3 @@ reConfig(
         '{XS.TMP}' => XS_DAT,
     )
 );
-
-?>

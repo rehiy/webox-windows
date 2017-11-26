@@ -1,7 +1,7 @@
 <?php
 
 $order = '31';
-$service = 'Anrip-MySQL';
+$service = 'Webox-MySQL';
 
 reConfig(
     XS_CFG.'/mysql',
@@ -11,5 +11,3 @@ reConfig(
         '{XS.SQL}' => XS_DAT.'/mysql',
     )
 );
-
-?>
