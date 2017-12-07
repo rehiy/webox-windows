@@ -3,7 +3,7 @@
 ::系统设置
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-title Webox.xServer 服务控制台 - v7.1126
+title WeBox 服务控制台 - v7.1207
 
 cd /d %~dp0
 set root=%~dp0
@@ -25,7 +25,7 @@ call :check_vc2015
 :?
   cls && echo.
   set SPC=          -
-  echo %SPC%----- Webox.xServer 服务控制台 -----------Multi-Service---
+  echo %SPC%----- WeBox-windows 服务控制台 -----------Multi-Service---
   echo %SPC%-                                                       --
   echo %SPC%-    1.安装服务       2.重启服务       3.卸载服务       --
   echo %SPC%-                                                       --

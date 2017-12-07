@@ -1,4 +1,4 @@
-# Webox.xServer 使用手册
+# WeBox-windows 使用手册
 
 功能: HTTP + Redis + MYSQL + PHP(FCGI)
 
@@ -6,7 +6,7 @@
 
 主页: http://www.anrip.com
 
-说明: xServer是业内首家通过CMD实现标准管理接口的集成化WEB开发环境
+说明: WeBox是业内首家通过CMD实现标准管理接口的集成化WEB开发环境
 
 特性:
 
@@ -20,7 +20,7 @@
 
 - 如需兼容IIS服务，请运行runtime\httpcfg\iis.cmd修改IIS监听地址
 
-- 运行xServer.bat，选择[安装服务]，即可使用MYSQL+Nginx+PHP等服务
+- 运行WeBox.bat，选择[安装服务]，即可使用MYSQL+Nginx+PHP等服务
 
   - Nginx 默认监听地址为 0.0.0.0:80
   - MySQL 默认监听地址为 127.0.0.1:3306
@@ -61,19 +61,22 @@
   - 确保服务未安装，否则请[卸载服务]
   - 编辑config\phpye\phpye.ini修改进程池参数
   - 编辑Nginx配置etc/suffix/*.inc，修改为对应端口
-  - 运行xServer.bat，选择[重建配置]，再选择[重启服务]
+  - 运行WeBox.bat，选择[重建配置]，再选择[重启服务]
 
 - 如何修改WEB根目录
   - 编辑runtime\config.php，修改[XS.WEB]的值
   - 建立[XS.WEB]对应目录，并移动原WEB到[XS.WEB]目录
-  - 运行xServer.bat，选择[重建配置]，再选择[重启服务]
+  - 运行WeBox.bat，选择[重建配置]，再选择[重启服务]
 
 - 如何修改MySQL数据目录
   - 编辑runtime\config.php，修改[XS.SQL]的值
   - 建立[XS.SQL]对应目录，并移动原MySQL数据到[XS.SQL]目录
-  - 运行xServer.bat，选择[重建配置]，再选择[重启服务]
+  - 运行WeBox.bat，选择[重建配置]，再选择[重启服务]
 
 ### 更新日志
+
+- 2017年12月07日
+  - 更名为WeBox-windows
 
 - 2017年11月23日
   - 更新PHP5版本为5.6.32

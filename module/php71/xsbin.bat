@@ -29,7 +29,7 @@ if not "%1" == "" (
 ::独立控制台模式
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-title Webox.xServer 服务控制台
+title %scName% 服务控制台
 
 echo.
 echo 暂不支持独立控制台模式...
@@ -40,7 +40,7 @@ pause >nul && exit
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :app_runtime
-  set scName=Webox-PHP71
+  set scName=WeBox-PHP71
   goto :EOF
 
 :app_create
