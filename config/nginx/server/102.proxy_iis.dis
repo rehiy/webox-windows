@@ -1,6 +1,6 @@
 server {
 
-    listen {XS.IPN}:80;
+    listen {WB.IPN}:80;
 
     # 反向代理到IIS的域名
     server_name iis.anrip.net;

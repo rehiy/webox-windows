@@ -1,13 +1,13 @@
 <?php
 
 $order = '31';
-$service = 'Webox-MySQL';
+$service = 'WeBox-MySQL';
 
 reConfig(
-    XS_CFG.'/mysql',
-    XS_ETC.'/mysql',
+    WB_CFG.'/mysql',
+    WB_ETC.'/mysql',
     array(
-        '{XS.MOD}' => XS_MOD,
-        '{XS.SQL}' => XS_DAT.'/mysql',
+        '{WB.MOD}' => WB_MOD,
+        '{WB.SQL}' => WB_DAT.'/mysql',
     )
 );

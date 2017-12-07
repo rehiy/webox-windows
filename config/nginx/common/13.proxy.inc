@@ -11,7 +11,7 @@ proxy_connect_timeout 30;
 proxy_read_timeout 180;
 proxy_send_timeout 180;
 
-proxy_cache_path {XS.TMP}/nginx/cache levels=1:2 keys_zone=proxy_cache:128m max_size=512m inactive=1d;
+proxy_cache_path {WB.TMP}/nginx/cache levels=1:2 keys_zone=proxy_cache:128m max_size=512m inactive=1d;
 
 ##
 # header

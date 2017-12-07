@@ -49,7 +49,7 @@ pause >nul && exit
   )
   echo. && echo 正在安装Nginx服务...
   %xnssm% install %scName% %mroot%\nginx.exe
-  %xnssm% set %scName% DisplayName "Webox Nginx Server" >nul
+  %xnssm% set %scName% DisplayName "WeBox Nginx Server" >nul
   %xnssm% set %scName% AppParameters -p %mroot% -c %mconf% >nul
   call :app_start
   goto :EOF

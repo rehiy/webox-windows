@@ -1,7 +1,7 @@
 [Xdebug]
 
 ;添加扩展
-zend_extension = "{XS.MOD}/php71/pecl/php_xdebug.dll"
+zend_extension = "{WB.MOD}/php71/pecl/php_xdebug.dll"
 
 ;是否开启自动跟踪
 xdebug.auto_trace = On
@@ -24,8 +24,8 @@ xdebug.collect_return = On
 ;是否收集参数
 xdebug.collect_params = On
 ;跟踪输出路径
-xdebug.trace_output_dir = "{XS.TMP}/php71/xdebug"
+xdebug.trace_output_dir = "{WB.TMP}/php71/xdebug"
 ;是否开启调试内容
 xdebug.profiler_enable = On
 ;调试输出路径
-xdebug.profiler_output_dir = "{XS.TMP}/php71/xdebug"
+xdebug.profiler_output_dir = "{WB.TMP}/php71/xdebug"

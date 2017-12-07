@@ -3,7 +3,7 @@
 ##
 
 location /errpage/ {
-    alias {XS.WEB}/errpage/;
+    alias {WB.WEB}/errpage/;
 }
 
 error_page 403 /errpage/403.htm;

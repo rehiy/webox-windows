@@ -1,14 +1,14 @@
 <?php
 
 $order = '99';
-$service = 'Webox-Nginx';
+$service = 'WeBox-Nginx';
 
 reConfig(
-    XS_CFG.'/nginx',
-    XS_ETC.'/nginx',
+    WB_CFG.'/nginx',
+    WB_ETC.'/nginx',
     array(
-        '{XS.IPN}' => XS_IPN,
-        '{XS.TMP}' => XS_DAT,
-        '{XS.WEB}' => XS_WEB,
+        '{WB.IPN}' => WB_IPN,
+        '{WB.TMP}' => WB_DAT,
+        '{WB.WEB}' => WB_WEB,
     )
 );

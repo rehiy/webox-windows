@@ -6,7 +6,7 @@ location ~ \.php$ {
 
     include fastcgi_params;
 
-    #fastcgi_param PHP_ADMIN_VALUE "open_basedir=$document_root/;{XS.TMP}/php71/";
+    #fastcgi_param PHP_ADMIN_VALUE "open_basedir=$document_root/;{WB.TMP}/php71/";
 
     fastcgi_index index.php;
     fastcgi_pass  127.0.0.1:9701;

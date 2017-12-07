@@ -3,33 +3,33 @@
 //系统参数定义
 define('TIME', time());
 define('ROOT', getcwd());
-define('XS_DIR', str_replace('\\', '/', ROOT));
-define('XS_IPN', gethostbyname($_SERVER['SERVER_NAME']));
+define('WB_DIR', str_replace('\\', '/', ROOT));
+define('WB_IPN', gethostbyname($_SERVER['SERVER_NAME']));
 
 //用户参数定义
-define('XS_CFG', XS_DIR.'/config');//配置文件根目录
-define('XS_ETC', XS_DIR.'/deploy');//配置文件根目录
-define('XS_MOD', XS_DIR.'/module');//应用模块根目录
-define('XS_DAT', XS_DIR.'/storage');//数据文件根目录
-define('XS_WEB', XS_DIR.'/webroot');//站点文件根目录
+define('WB_CFG', WB_DIR.'/config');//配置文件根目录
+define('WB_ETC', WB_DIR.'/deploy');//配置文件根目录
+define('WB_MOD', WB_DIR.'/module');//应用模块根目录
+define('WB_DAT', WB_DIR.'/storage');//数据文件根目录
+define('WB_WEB', WB_DIR.'/webroot');//站点文件根目录
 
 //////////////////////////////////////reConfig//////////
 
 echo "备份配置文件...\n\n";
 
-mvConfig(XS_ETC, XS_DAT);
+mvConfig(WB_ETC, WB_DAT);
 
 echo "重建配置文件...\n";
 
 $module = array();
-foreach(glob(XS_CFG.'/*.php') as $php) {
+foreach(glob(WB_CFG.'/*.php') as $php) {
     $order = $php; $service = ''; include($php);
     $module[$order] = basename($php, '.php').' '.$service;
 }
 
 ksort($module);
 $module = implode(PHP_EOL, $module);
-file_put_contents(XS_ETC.'/module.ini', $module);
+file_put_contents(WB_ETC.'/module.ini', $module);
 
 //////////////////////////////////////Functions//////////
 

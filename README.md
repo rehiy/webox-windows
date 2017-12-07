@@ -64,13 +64,13 @@
   - 运行WeBox.bat，选择[重建配置]，再选择[重启服务]
 
 - 如何修改WEB根目录
-  - 编辑runtime\config.php，修改[XS.WEB]的值
-  - 建立[XS.WEB]对应目录，并移动原WEB到[XS.WEB]目录
+  - 编辑runtime\config.php，修改[WB.WEB]的值
+  - 建立[WB.WEB]对应目录，并移动原WEB到[WB.WEB]目录
   - 运行WeBox.bat，选择[重建配置]，再选择[重启服务]
 
 - 如何修改MySQL数据目录
-  - 编辑runtime\config.php，修改[XS.SQL]的值
-  - 建立[XS.SQL]对应目录，并移动原MySQL数据到[XS.SQL]目录
+  - 编辑runtime\config.php，修改[WB.SQL]的值
+  - 建立[WB.SQL]对应目录，并移动原MySQL数据到[WB.SQL]目录
   - 运行WeBox.bat，选择[重建配置]，再选择[重启服务]
 
 ### 更新日志

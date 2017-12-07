@@ -2,11 +2,11 @@
 # Misc Config
 ##
 
-scgi_temp_path {XS.TMP}/nginx/scgi;
-uwsgi_temp_path {XS.TMP}/nginx/uwsgi;
-fastcgi_temp_path {XS.TMP}/nginx/fastcgi;
-client_body_temp_path {XS.TMP}/nginx/client_body;
-proxy_temp_path {XS.TMP}/nginx/proxy;
+scgi_temp_path {WB.TMP}/nginx/scgi;
+uwsgi_temp_path {WB.TMP}/nginx/uwsgi;
+fastcgi_temp_path {WB.TMP}/nginx/fastcgi;
+client_body_temp_path {WB.TMP}/nginx/client_body;
+proxy_temp_path {WB.TMP}/nginx/proxy;
 
 client_header_buffer_size 32k;
 client_body_buffer_size 128k;
