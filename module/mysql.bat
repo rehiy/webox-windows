@@ -5,12 +5,12 @@
 
 setlocal
 
-set mroot=%~dp0
-set mroot=%mroot:~0,-1%
-set mconf=%mroot:module=deploy%\my.ini
-
-set xroot=%mroot:~0,-13%
+set xroot=%~dp0
+set xroot=%xroot:~0,-7%
 set xnssm=%xroot%\runtime\nssm.exe
+
+set mroot=%xroot%\module\%~n0
+set mconf=%xroot%\deploy\%~n0\my.ini
 
 call :app_runtime
 

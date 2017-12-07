@@ -3,7 +3,7 @@
 $order = '35';
 $service = 'WeBox-Redis';
 
-reConfig(
+build_config(
     WB_CFG.'/redis',
     WB_ETC.'/redis',
     array(

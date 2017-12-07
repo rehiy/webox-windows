@@ -3,7 +3,7 @@
 $order = '31';
 $service = 'WeBox-MySQL';
 
-reConfig(
+build_config(
     WB_CFG.'/mysql',
     WB_ETC.'/mysql',
     array(

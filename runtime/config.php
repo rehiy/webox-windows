@@ -1,23 +1,23 @@
 <?php
 
-//系统参数定义
 define('TIME', time());
-define('ROOT', getcwd());
+define('ROOT', dirname(__DIR__));
+
 define('WB_DIR', str_replace('\\', '/', ROOT));
 define('WB_IPN', gethostbyname($_SERVER['SERVER_NAME']));
 
-//用户参数定义
-define('WB_CFG', WB_DIR.'/config');//配置文件根目录
-define('WB_ETC', WB_DIR.'/deploy');//配置文件根目录
-define('WB_MOD', WB_DIR.'/module');//应用模块根目录
-define('WB_DAT', WB_DIR.'/storage');//数据文件根目录
-define('WB_WEB', WB_DIR.'/webroot');//站点文件根目录
+define('WB_CFG', WB_DIR.'/config');
+define('WB_ETC', WB_DIR.'/deploy');
+define('WB_MOD', WB_DIR.'/module');
+
+define('WB_DAT', WB_DIR.'/storage');
+define('WB_WEB', WB_DIR.'/webroot');
 
 //////////////////////////////////////reConfig//////////
 
 echo "备份配置文件...\n\n";
 
-mvConfig(WB_ETC, WB_DAT);
+move_config(WB_ETC, WB_DAT);
 
 echo "重建配置文件...\n";
 
@@ -33,8 +33,8 @@ file_put_contents(WB_ETC.'/module.ini', $module);
 
 //////////////////////////////////////Functions//////////
 
-//备份配置文件
-function mvConfig($src, $dst) {
+// 备份配置文件
+function move_config($src, $dst) {
     $src = str_replace('/', '\\', $src);
     $dst = str_replace('/', '\\', $dst);
     if(is_dir($src)) {
@@ -42,8 +42,8 @@ function mvConfig($src, $dst) {
     }
 }
 
-//重建配置文件
-function reConfig($src, $dst, $rep = array()) {
+// 重建配置文件
+function build_config($src, $dst, $rep = array()) {
     if(is_file($src)) {//文件
         $content = file_get_contents($src);
         return file_put_contents($dst, strtr($content, $rep));
@@ -51,12 +51,25 @@ function reConfig($src, $dst, $rep = array()) {
     if(is_dir($src)) {//目录
         aw_copy($src, $dst);
         foreach(aw_glob($dst) as $f) {
-            reConfig($f, $f, $rep);
+            build_config($f, $f, $rep);
         }
     }
 }
 
-//递归复制目录
+// PHP配置文件合并工具
+function merge_php_ini($path) {
+    $string = '';
+    $target = $path.'/php.ini';
+    foreach(glob($path.'/php*.ini') as $ini) {
+        $string .= file_get_contents($ini)."\r\n";
+        unlink($ini);
+    }
+    $string = preg_replace('/[\r\n]+;.*/', '', $string);
+    file_put_contents($target, $string);
+    return $target;
+}
+
+// 递归复制目录
 function aw_copy($src, $dst) {
     if($src == $dst || !is_dir($src)) {
         return false;
@@ -67,8 +80,8 @@ function aw_copy($src, $dst) {
     return !$r;
 }
 
-//递归获取文件
-function aw_glob($path = './', $mark = '*', $full = false) {
+// 递归获取文件
+function aw_glob($path, $mark = '*', $full = false) {
     $files = array();
     //获取根目录文件
     if($result = glob($path.$mark, GLOB_MARK|GLOB_BRACE)) {
@@ -87,18 +100,3 @@ function aw_glob($path = './', $mark = '*', $full = false) {
     }
     return $files;
 }
-
-//PHP配置文件合并工具
-function php_ini_merge($path) {
-    $string = '';
-    $target = $path.'/php.ini';
-    foreach(glob($path.'/php*.ini') as $ini) {
-        $string .= file_get_contents($ini)."\r\n";
-        unlink($ini);
-    }
-    $string = preg_replace('/[\r\n]+;.*/', '', $string);
-    file_put_contents($target, $string);
-    return $target;
-}
-
-?>

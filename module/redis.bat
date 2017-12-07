@@ -5,13 +5,12 @@
 
 setlocal
 
-set mroot=%~dp0
-set mroot=%mroot:~0,-1%
-set mconf=%mroot:module=deploy%\php.ini
-
-set xroot=%mroot:~0,-13%
+set xroot=%~dp0
+set xroot=%xroot:~0,-7%
 set xnssm=%xroot%\runtime\nssm.exe
-set xconf=%mroot:module=deploy%\xxfpm.ini
+
+set mroot=%xroot%\module\%~n0
+set mconf=%xroot%\deploy\%~n0\redis.conf
 
 call :app_runtime
 
@@ -40,56 +39,50 @@ pause >nul && exit
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :app_runtime
-  set scName=WeBox-PHP56
+  set scName=WeBox-Redis
   goto :EOF
 
 :app_create
   if not exist "%mconf%" (
-    echo. && echo 错误: PHP56配置文件不存在...
+    echo. && echo 错误: Redis配置文件不存在...
     goto :EOF
   )
-  echo. && echo 正在安装PHP56服务...
-  %xnssm% install %scName% %mroot%\xxfpm\fpm56.exe
-  %xnssm% set %scName% DisplayName "WeBox PHP56 Server" >nul
-  for /f "eol=; tokens=1,2,3,4" %%h in (%xconf%) do (
-    %xnssm% set %scName% AppParameters \"%mroot%\php56.exe -c %mconf%\" -i %%h -p %%i -n %%j >nul
-    break
-  )
+  echo. && echo 正在安装Redis服务...
+  %xnssm% install %scName% %mroot%\redis-server.exe
+  %xnssm% set %scName% DisplayName "WeBox Redis Server" >nul
+  %xnssm% set %scName% AppParameters %mconf% >nul
   call :app_start
   goto :EOF
 
 :app_remove
   call :app_stop
-  echo. && echo 正在卸载PHP56服务...
+  echo. && echo 正在卸载Redis服务...
   %xnssm% remove %scName% confirm
   goto :EOF
 
 :app_start
-  echo. && echo 正在启动PHP56服务...
+  echo. && echo 正在启动Redis服务...
   %xnssm% start %scName%
   call :app_progress
   goto :EOF
 
 :app_stop
-  echo. && echo 正在停止PHP56服务...
+  echo. && echo 正在停止Redis服务...
   %xnssm% stop %scName%
-  taskkill /T /F /IM php5* >nul 2>nul
   goto :EOF
 
 :app_reboot
-  echo. && echo 正在重启PHP56服务...
-  %xnssm% stop %scName%
-  taskkill /T /F /IM php5* >nul 2>nul
-  %xnssm% start %scName%
+  echo. && echo 正在重启Redis服务...
+  %xnssm% restart %scName%
   call :app_progress
   goto :EOF
 
 :app_progress
-  echo. && echo 正在检查PHPye进程...
-  ping 127.0.0.1 -n 1 >nul
-  tasklist | findstr php56.exe >nul
+  echo. && echo 正在检查Redis进程...
+  ping 127.0.0.1 -n 5 >nul
+  tasklist | findstr redis-server.exe >nul
   if %errorlevel% neq 0 (
-    echo 错误: PHP56启动失败
+    echo 错误: Redis启动失败
   )
   goto :EOF
 

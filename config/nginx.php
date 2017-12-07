@@ -3,7 +3,7 @@
 $order = '99';
 $service = 'WeBox-Nginx';
 
-reConfig(
+build_config(
     WB_CFG.'/nginx',
     WB_ETC.'/nginx',
     array(
