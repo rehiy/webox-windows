@@ -36,7 +36,9 @@
 - 2017年之前
   - 支持 Windows 32bit
   - 更新日志请下载32位兼容版查看
+  - https://pan.baidu.com/s/1dF2cQPF
 
 - 2015年之前
   - 支持 Windows XP +
   - 更新日志请下载XP兼容版查看
+  - https://pan.baidu.com/s/1dF2cQPF
