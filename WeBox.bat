@@ -67,9 +67,7 @@ call :check_vc2015
   set "mod=deploy\module.ini"
   for /f "eol=; tokens=1,2" %%h in (%mod%) do (
     if "%1"=="create" call :check_service %%i
-    if exist "module\%%h\xsbin.bat" (
-      call module\%%h\xsbin.bat %1
-    )
+    if exist module\%%h.bat call module\%%h.bat %1
   )
   goto :EOF
 
