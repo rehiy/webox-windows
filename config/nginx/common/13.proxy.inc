@@ -18,5 +18,6 @@ proxy_cache_path {WB.TMP}/nginx/cache levels=1:2 keys_zone=proxy_cache:128m max_
 ##
 
 proxy_set_header Host $host;
-proxy_set_header X-Scheme $scheme;
+proxy_set_header X-Forwarded-Proto $scheme;
+proxy_set_header X-Forwarded-Port $remote_port;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
