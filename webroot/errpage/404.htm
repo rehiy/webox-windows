@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<title>出错了 o(︶︿︶)o</title>
-<style type="text/css">
-	* { margin:0; padding:0; }
-	html { background:#fff; color:#842b00; }
-	body { font:12px/32px tahoma,helvetica,arial,sans-serif; }
-	a { color:#f00; text-decoration:none; padding:0 3px; }
-	a:hover { color:#00f; }
-	.line { height:0px; overflow:hidden; border-top:1px solid #999; }
-	.wrap { width:480px; margin:24px auto; }
-	.wrap ul { list-style:none; padding-left:24px; }
-	.wrap h1 { font-size:18px; }
-</style>
+    <meta charset="utf-8" />
+    <title>页面未找到</title>
+    <meta http-equiv="refresh" content="30;url=http://www.anrip.com" />
+    <meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1" />
 </head>
-<div class="wrap">
-	<h1>页面未找到</h1>
-	<p>HTTP 错误 <b>404</b>：您正在访问的页面可能已经删除、更名或暂时不可用。</p>
-	<div class="line"></div>
-	<p>☉ 请尝试以下操作：</p>
-	<ul>
-		<li>• 确保地址栏中显示的网站地址及其格式正确无误。</li>
-		<li>• 单击<a href="javascript:history.back(1)">后退</a>按钮返回历史页面，然后重新尝试其他链接。</li>
-		<li>• 如果通过单击链接而到达了该页面，请<a href="mailto:support@anrip.com">联系客服</a>并报告此错误。</li>
-	</ul>
-	<div class="line"></div>
-	<p>☉ 若您对本站有任何的疑问、意见、建议，请<a href="mailto:mail@anrip.com">联系管理员</a>并提交您的留言。</p>
-</div>
+<body>
+    <div class="page">
+        <h1>抱歉，找不到此页面~</h1>
+        <h2>Sorry, the site now can not be accessed. </h2>
+        <div class="desc">
+            你请求访问的页面，暂时无法提供服务，建议你进入官网首页进行浏览，谢谢！
+        </div>
+        <div class="button">
+            <a href="http://www.anrip.com">进入官网</a>
+            <a href="mailto:mail@anrip.com">联系管理员</a>
+        </div>
+    </div>
+    <style type="text/css">
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .page {
+            width: calc(100% - 30px);
+            max-width: 720px;
+            margin: 80px auto;
+            padding: 20px;
+            border-style: dashed;
+            border-color: #e4e4e4;
+            line-height: 30px;
+        }
+        .desc {
+            color: #666;
+            padding: 10px 0 30px;
+        }
+        .button a {
+            width: 120px;
+            height: 30px;
+            display: inline-block;
+            background: #009CFF;
+            border-bottom: 3px solid #0188DE;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            color: #fff;
+        }
+        .button a:hover {
+            background: #5BBFFF;
+        }
+    </style>
 </body>
 </html>
