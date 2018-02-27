@@ -86,9 +86,10 @@ call :check_vc2015
 
 :check_manager
   echo. && echo 测试运行权限...
-  fsutil >nul || (
-    echo 测试失败,请以管理员身份运行.
-    pause >nul && exit
+  >nul 2>&1 reg.exe query "HKU\S-1-5-19" || (
+    echo CreateObject^("Shell.Application"^).ShellExecute "%~f0", "%1", "", "runas", 1 > "%TEMP%\sudo.vbs"
+    echo CreateObject^("Scripting.FileSystemObject"^).DeleteFile^("%TEMP%\sudo.vbs"^) >> "%TEMP%\sudo.vbs"
+    wscript "%TEMP%\sudo.vbs" && exit
   )
   goto :EOF
 
