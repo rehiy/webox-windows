@@ -118,7 +118,7 @@ call :check_vc2019
     ) else (
       echo 正在尝试安装VC运行库...
       start /w runtime\vc_redist_2019.exe /passive
-      call :check_vc2015 retry
+      call :check_vc2019 retry
     )
   )
   goto :EOF
