@@ -15,9 +15,7 @@ set root=%root:~0,-1%
 call :check_manager
 call :check_network
 
-call :check_vc2012
-call :check_vc2013
-call :check_vc2015
+call :check_vc2019
 
 ::服务控制台
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -111,44 +109,15 @@ call :check_vc2015
   )
   goto :EOF
 
-:check_vc2012
-    echo. && echo 测试vc运行库...
-    dir %windir%\System32 | find /i /c "msvcr110.dll" >nul || (
-        if "%1"=="retry" (
-            echo 请手动安装VC++2012运行库!!!
-            pause >nul && exit
-        ) else (
-            echo 正在尝试安装VC运行库...
-            start /w runtime\vc_redist_2012.exe /passive
-            call :check_vc2012 retry
-        )
-    )
-    cls && goto :EOF
-
-
-:check_vc2013
-    echo. && echo 测试vc运行库...
-    dir %windir%\System32 | find /i /c "msvcr120.dll" >nul || (
-        if "%1"=="retry" (
-            echo 请手动安装VC++2013运行库!!!
-            pause >nul && exit
-        ) else (
-            echo 正在尝试安装VC运行库...
-            start /w runtime\vc_redist_2013.exe /passive
-            call :check_vc2012 retry
-        )
-    )
-    cls && goto :EOF
-
-:check_vc2015
+:check_vc2019
   echo. && echo 测试VC运行库...
   dir %windir%\System32 | find /i /c "vcruntime140" >nul || (
     if "%1"=="retry" (
-      echo 请手动安装VC++2015运行库!!!
+      echo 请手动安装VC++2015-2019运行库!!!
       pause >nul && exit
     ) else (
       echo 正在尝试安装VC运行库...
-      start /w runtime\vc_redist_2015.exe /passive
+      start /w runtime\vc_redist_2019.exe /passive
       call :check_vc2015 retry
     )
   )
