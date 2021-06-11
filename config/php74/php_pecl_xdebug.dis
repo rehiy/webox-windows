@@ -1,0 +1,31 @@
+[Xdebug]
+
+;添加扩展
+zend_extension = "{WB.MOD}/php74/pecl/php_xdebug.dll"
+
+;是否开启自动跟踪
+xdebug.auto_trace = On
+;是否开启异常跟踪
+xdebug.show_exception_trace = On
+;是否开启远程调试自动启动
+xdebug.remote_autostart = On
+;是否开启远程调试
+xdebug.remote_enable = Off
+;允许调试的客户端IP
+xdebug.remote_host = 127.0.0.1
+;远程调试的端口（默认9000）
+xdebug.remote_port = 9000
+;调试插件dbgp
+xdebug.remote_handler = dbgp
+;是否收集变量
+xdebug.collect_vars = On
+;是否收集返回值
+xdebug.collect_return = On
+;是否收集参数
+xdebug.collect_params = On
+;跟踪输出路径
+xdebug.trace_output_dir = "{WB.TMP}/php74/xdebug"
+;是否开启调试内容
+xdebug.profiler_enable = On
+;调试输出路径
+xdebug.profiler_output_dir = "{WB.TMP}/php74/xdebug"

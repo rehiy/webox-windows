@@ -24,8 +24,7 @@
 
   - Nginx 默认监听地址为 0.0.0.0:80
   - MySQL 默认监听地址为 127.0.0.1:3306
-  - PHP56 默认监听地址为 127.0.0.1:9501
-  - PHP71 默认监听地址为 127.0.0.1:9701
+  - PHP74 默认监听地址为 127.0.0.1:9701
 
 ### 组件列表
 
@@ -33,13 +32,12 @@
 
 - MySQL/5.7.19                http://www.mysql.com/downloads/mysql
 
-- Nginx/1.12.2                http://www.nginx.org/en/download.html
+- Nginx/1.20.1                http://www.nginx.org/en/download.html
 
-- PHP/5.6.32                  http://windows.php.net/download
-- PHP/7.1.11                  http://windows.php.net/download
+- PHP/7.4.20                  http://windows.php.net/download
 
-- PHP-redis/3.1.3             http://pecl.php.net/package/redis
-- PHP-xdebug/2.5.5            http://pecl.php.net/package/xdebug
+- PHP-redis/5.3.4             http://pecl.php.net/package/redis
+- PHP-xdebug/3.0.4            http://pecl.php.net/package/xdebug
 
 ### 常见问题
 
@@ -54,8 +52,9 @@
   - 创建域名对应的网站目录，例如 webroot\org.example.www
 
 - 如何管理MySQL
-  - 使用浏览器访问http://127.0.0.1/dber.php
-  - 服务器:127.0.0.1；帐户:root/密码:空
+  - 服务器: 127.0.0.1
+  - 帐户: root
+  - 密码: 空
 
 - 如何切换PHP版本
   - 确保服务未安装，否则请[卸载服务]
