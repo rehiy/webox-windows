@@ -1,7 +1,7 @@
 <?php
 /*!
  * Anrip Web Explorer
- * 作者: 若海 & 尛岢 (http://www.anrip.com)
+ * 作者: 若海 & 尛岢 (http://www.rehiy.com)
  * 说明: 出于安全考虑,默认仅允许管理当前目录及下级目录文件
  */
 
@@ -133,9 +133,9 @@ if($_GET['inajax']) {
 <script type="text/javascript">
 /*
  @name HRise JS Core
- @author anrip[mail@anrip.com]
+ @author anrip[wang@rehiy.com]
  @version 2.1, 2012-09-21 10:00
- @website http://lab.anrip.com/hrise/
+ @website http://lab.rehiy.com/hrise/
  Dual licensed under the MIT and GPL licenses
 */
 (function(e,f){var k=e.document,g=Array.prototype.slice,m=Object.prototype.toString,l=Object.prototype.hasOwnProperty,j=function(){var a=function(b,c,o){if(!0===c||1===c||"string"!==typeof b)o=!0,c=f;return o?new a.fn.run(b,c):p(b,c)};a.fn={run:function(b,c){if(!b)return this;if(b.nodeType)return this.context=this[0]=b,this.length=1,this;if("body"===b&&!c&&k.body)return this.context=k,this[0]=k.body,this.selector=b,this.length=1,this;if("string"===typeof b){var o=d(b,c);this.context=c||k;this.selector=
@@ -188,13 +188,13 @@ $.ready(function() {
         dialog(''
             + '<div class="about">'
             + '<p><b>主要成员:</b>'
-            + ' <a href="http://www.anrip.com" target="_blank">若海</a>'
+            + ' <a href="http://www.rehiy.com" target="_blank">若海</a>'
             + ' & <a href="http://www.kerring.net" target="_blank">尛岢</a>'
             + ' & <a href="http://www.phpye.com" target="_blank">小小宇</a>'
             + '</p>'
-            + '<p><b>项目博客:</b> <a href="http://www.anrip.com" target="_blank">http://www.anrip.com</a></p>'
+            + '<p><b>项目博客:</b> <a href="http://www.rehiy.com" target="_blank">http://www.rehiy.com</a></p>'
             + '<p><b>技术论坛:</b> <a href="http://www.phpye.com" target="_blank">http://www.phpye.com</a></p>'
-            + '<p><b>源码托管:</b> <a href="http://lab.anrip.com/svn" target="_blank">http://lab.anrip.com/svn</a></p>'
+            + '<p><b>源码托管:</b> <a href="http://lab.rehiy.com/svn" target="_blank">http://lab.rehiy.com/svn</a></p>'
             + '<p><b>项目说明:</b> 每个根目录都是一个独立项目，您可以查看或下载所有项目文件。</p>'
             + '</div>', null, null,
             '若海实验室'
@@ -231,13 +231,13 @@ a:hover { color:#f00;text-decoration:underline; }
 </head>
 <body>
 <div class="head">
-    <h2><a href="http://www.anrip.com">若海实验室</a></h2>
+    <h2><a href="http://www.rehiy.com">若海实验室</a></h2>
 </div>
 <div class="wrap">
     <?=$out;?>
 </div>
 <div class="foot">
-    <span id="copy">&copy; 2005-2017 <a href="http://www.anrip.com">Anrip</a> Lab, All Rights Reserved</span>
+    <span id="copy">&copy; 2005-2017 <a href="http://www.rehiy.com">Anrip</a> Lab, All Rights Reserved</span>
 </div>
 </body>
 </html>

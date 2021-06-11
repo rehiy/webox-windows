@@ -3,7 +3,7 @@
 ##
 
 location /errpage/ {
-    alias {WB.WEB}/errpage/;
+    alias {WB.WEB}/assets/;
 }
 
 error_page 403 /errpage/403.htm;

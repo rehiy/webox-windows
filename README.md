@@ -2,9 +2,9 @@
 
 功能: HTTP + Redis + MYSQL + PHP(FCGI)
 
-作者: 若海[mail@anrip.com] & 尛岢[mod@kerring.me]
+作者: 若海[wang@rehiy.com] & 尛岢[mod@kerring.me]
 
-主页: http://www.anrip.com
+主页: http://www.rehiy.com
 
 说明: WeBox是业内首家通过CMD实现标准管理接口的集成化WEB开发环境
 
