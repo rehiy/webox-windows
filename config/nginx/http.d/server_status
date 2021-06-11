@@ -1,5 +1,5 @@
 ##
-# Server Status
+# Server - Status
 ##
 
 location /status/nginx {
