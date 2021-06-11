@@ -51,7 +51,7 @@
   - config\*.dis 表示已经禁用的模块
 
 - 如何建立新站点
-  - 创建域名对应的网站目录，例如 webroot\net.anrip\www
+  - 创建域名对应的网站目录，例如 webroot\org.example.www
 
 - 如何管理MySQL
   - 使用浏览器访问http://127.0.0.1/dber.php

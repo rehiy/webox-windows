@@ -15,11 +15,11 @@ server {
         rewrite ^/?(.*)$ http://www.$host/$1 last;
     }
     if ($host ~ ([^\.]+)\.([^\.]+)\.([^\.]+)$) {
-        set $sitedir $pooldir/$3.$2/$1;
+        set $sitedir $pooldir/$3.$2.$1;
     }
 
     if (!-d $sitedir) {
-        set $sitedir $pooldir/default;
+        set $sitedir $pooldir/assets;
     }
 
     root  $sitedir;
