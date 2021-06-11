@@ -15,4 +15,4 @@ build_config(
 
 merge_php_ini(WB_ETC.'/php74');
 
-file_put_contents(WB_ETC.'/php74/xxfpm.ini', '127.0.0.1 9701 16');
+file_put_contents(WB_ETC.'/php74/fpm.ini', '9701 4+16');

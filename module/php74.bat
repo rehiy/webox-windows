@@ -11,7 +11,7 @@ set xnssm=%xroot%\runtime\nssm.exe
 
 set mroot=%xroot%\module\%~n0
 set mconf=%xroot%\deploy\%~n0\php.ini
-set nconf=%xroot%\deploy\%~n0\xxfpm.ini
+set nconf=%xroot%\deploy\%~n0\fpm.ini
 
 call :app_runtime
 
@@ -49,10 +49,10 @@ pause >nul && exit
     goto :EOF
   )
   echo. && echo 正在安装PHP74服务...
-  %xnssm% install %scName% %mroot%\xxfpm\fpm74.exe
+  %xnssm% install %scName% %mroot%\fpm74.exe
   %xnssm% set %scName% DisplayName "WeBox PHP74 Server" >nul
   for /f "eol=; tokens=1,2,3,4" %%h in (%nconf%) do (
-    %xnssm% set %scName% AppParameters \"%mroot%\php74.exe -c %mconf%\" -i %%h -p %%i -n %%j >nul
+    %xnssm% set %scName% AppParameters \"%mroot%\php74.exe -c %mconf%\" %%h %%i >nul
     break
   )
   call :app_start
