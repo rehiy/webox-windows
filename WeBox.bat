@@ -1,15 +1,15 @@
 @echo off
 
-::ÏµÍ³ï¿½ï¿½ï¿½ï¿½
+::ÏµÍ³ÉèÖÃ
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-title WeBox ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨ - v7.1207
+title WeBox ·þÎñ¿ØÖÆÌ¨ - v7.1207
 
 cd /d %~dp0
 set root=%~dp0
 set root=%root:~0,-1%
 
-::ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+::»·¾³¼ì²â
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 call :check_manager
@@ -19,23 +19,23 @@ call :check_vc2012
 call :check_vc2013
 call :check_vc2015
 
-::ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨
+::·þÎñ¿ØÖÆÌ¨
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :?
   cls && echo.
   set SPC=          -
-  echo %SPC%----- WeBox-windows ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨ -----------Multi-Service---
+  echo %SPC%----- WeBox-windows ·þÎñ¿ØÖÆÌ¨ -----------Multi-Service---
   echo %SPC%-                                                       --
-  echo %SPC%-    1.ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½       2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½       3.Ð¶ï¿½Ø·ï¿½ï¿½ï¿½       --
+  echo %SPC%-    1.°²×°·þÎñ       2.ÖØÆô·þÎñ       3.Ð¶ÔØ·þÎñ       --
   echo %SPC%-                                                       --
-  echo %SPC%-    4.ï¿½Ø½ï¿½ï¿½ï¿½ï¿½ï¿½       5.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½                        --
+  echo %SPC%-    4.ÖØ½¨ÅäÖÃ       5.»·¾³²âÊÔ                        --
   echo %SPC%-                                                       --
-  echo %SPC%----------------------- By Http://www.rehiy.com ----------
+  echo %SPC%----------------------- By Http://www.anrip.com ----------
   set Step=?
 :??
   echo.
-  set /p Step="ï¿½ï¿½Ñ¡ï¿½ï¿½ÒªÖ´ï¿½ÐµÄ²ï¿½ï¿½ï¿½[1-5=>%Step%]: "
+  set /p Step="ÇëÑ¡ÔñÒªÖ´ÐÐµÄ²Ù×÷[1-5=>%Step%]: "
   if "%Step%"=="?" goto ?
   for /l %%i in (1,1,5) do (
     if "%Step%"=="%%i" (
@@ -45,12 +45,12 @@ call :check_vc2015
       if %Step%==4 call :config
       if %Step%==5 call :module configtest
       call :check_error
-      echo. && echo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Ôºó·µ»Ø²Ëµï¿½...
+      echo. && echo ²Ù×÷Íê±Ï,ÉÔºó·µ»Ø²Ëµ¥...
       ping 127.1 -n 3 >nul
       goto ?
     )
   )
-  echo Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %Step%
+  echo Î´¶¨Òå²Ù×÷: %Step%
   goto ??
 
 :create
@@ -71,13 +71,13 @@ call :check_vc2015
   )
   goto :EOF
 
-::ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½Å±ï¿½
+::»·¾³²âÊÔ½Å±¾
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :check_error
   if %errorlevel% neq 0 (
     if "%1" == "" (
-      echo. && echo ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½...
+      echo. && echo ²Ù×÷Ê§°Ü,°´ÈÎÒâ¼ü·µ»ØÖ÷²Ëµ¥...
       pause >nul && goto ?
     )
     echo %1
@@ -85,7 +85,7 @@ call :check_vc2015
   goto :EOF
 
 :check_manager
-  echo. && echo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½...
+  echo. && echo ²âÊÔÔËÐÐÈ¨ÏÞ...
   >nul 2>&1 reg.exe query "HKU\S-1-5-19" || (
     echo CreateObject^("Shell.Application"^).ShellExecute "%~f0", "%1", "", "runas", 1 > "%TEMP%\sudo.vbs"
     echo CreateObject^("Scripting.FileSystemObject"^).DeleteFile^("%TEMP%\sudo.vbs"^) >> "%TEMP%\sudo.vbs"
@@ -94,9 +94,9 @@ call :check_vc2015
   goto :EOF
 
 :check_network
-  echo. && echo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç»·ï¿½ï¿½...
+  echo. && echo ²âÊÔÍøÂç»·¾³...
   ping 127.0.0.1 -n 2 >nul || (
-    echo ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+    echo ²âÊÔÊ§°Ü,Çë¼ì²éÍøÂçÁ¬½Ó.
     goto check_network
   )
   goto :EOF
@@ -105,20 +105,20 @@ call :check_vc2015
   set "cs=%1"
   for /f "skip=3 tokens=4" %%i in ('sc query %cs%') do (
     if not ''=='%%i' (
-      echo. && echo %cs%ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½... 
+      echo. && echo %cs%·þÎñÒÑ¾­´æÔÚ... 
       goto ??
     )
   )
   goto :EOF
 
 :check_vc2012
-    echo. && echo ï¿½ï¿½ï¿½ï¿½vcï¿½ï¿½ï¿½Ð¿ï¿½...
+    echo. && echo ²âÊÔvcÔËÐÐ¿â...
     dir %windir%\System32 | find /i /c "msvcr110.dll" >nul || (
         if "%1"=="retry" (
-            echo ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½×°VC++2012ï¿½ï¿½ï¿½Ð¿ï¿½!!!
+            echo ÇëÊÖ¶¯°²×°VC++2012ÔËÐÐ¿â!!!
             pause >nul && exit
         ) else (
-            echo ï¿½ï¿½ï¿½Ú³ï¿½ï¿½Ô°ï¿½×°VCï¿½ï¿½ï¿½Ð¿ï¿½...
+            echo ÕýÔÚ³¢ÊÔ°²×°VCÔËÐÐ¿â...
             start /w runtime\vc_redist_2012.exe /passive
             call :check_vc2012 retry
         )
@@ -127,13 +127,13 @@ call :check_vc2015
 
 
 :check_vc2013
-    echo. && echo ï¿½ï¿½ï¿½ï¿½vcï¿½ï¿½ï¿½Ð¿ï¿½...
+    echo. && echo ²âÊÔvcÔËÐÐ¿â...
     dir %windir%\System32 | find /i /c "msvcr120.dll" >nul || (
         if "%1"=="retry" (
-            echo ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½×°VC++2013ï¿½ï¿½ï¿½Ð¿ï¿½!!!
+            echo ÇëÊÖ¶¯°²×°VC++2013ÔËÐÐ¿â!!!
             pause >nul && exit
         ) else (
-            echo ï¿½ï¿½ï¿½Ú³ï¿½ï¿½Ô°ï¿½×°VCï¿½ï¿½ï¿½Ð¿ï¿½...
+            echo ÕýÔÚ³¢ÊÔ°²×°VCÔËÐÐ¿â...
             start /w runtime\vc_redist_2013.exe /passive
             call :check_vc2012 retry
         )
@@ -141,13 +141,13 @@ call :check_vc2015
     cls && goto :EOF
 
 :check_vc2015
-  echo. && echo ï¿½ï¿½ï¿½ï¿½VCï¿½ï¿½ï¿½Ð¿ï¿½...
+  echo. && echo ²âÊÔVCÔËÐÐ¿â...
   dir %windir%\System32 | find /i /c "vcruntime140" >nul || (
     if "%1"=="retry" (
-      echo ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½×°VC++2015ï¿½ï¿½ï¿½Ð¿ï¿½!!!
+      echo ÇëÊÖ¶¯°²×°VC++2015ÔËÐÐ¿â!!!
       pause >nul && exit
     ) else (
-      echo ï¿½ï¿½ï¿½Ú³ï¿½ï¿½Ô°ï¿½×°VCï¿½ï¿½ï¿½Ð¿ï¿½...
+      echo ÕýÔÚ³¢ÊÔ°²×°VCÔËÐÐ¿â...
       start /w runtime\vc_redist_2015.exe /passive
       call :check_vc2015 retry
     )
