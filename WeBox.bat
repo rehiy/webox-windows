@@ -3,7 +3,7 @@
 ::系统设置
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-title WeBox 服务控制台 - v7.1207
+title WeBox 服务控制台 - v21.0611
 
 cd /d %~dp0
 set root=%~dp0
@@ -29,7 +29,7 @@ call :check_vc2019
   echo %SPC%-                                                       --
   echo %SPC%-    4.重建配置       5.环境测试                        --
   echo %SPC%-                                                       --
-  echo %SPC%----------------------- By Http://www.anrip.com ----------
+  echo %SPC%----------------------- By Http://www.rehiy.com ----------
   set Step=?
 :??
   echo.
