@@ -28,7 +28,7 @@
 
 ### 组件列表
 
-- Redis/3.2.100               https://github.com/dmajkic/redis/downloads
+- Redis/3.2.100               https://github.com/MicrosoftArchive/redis/releases
 
 - MySQL/5.7.19                http://www.mysql.com/downloads/mysql
 
