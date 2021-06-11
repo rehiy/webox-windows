@@ -1,6 +1,6 @@
 # WeBox-windows 使用手册
 
-功能: HTTP + Redis + MYSQL + PHP(FCGI)
+功能: Nginx + MariaDB + Redis + PHP(FCGI)
 
 作者: 若海[wang@rehiy.com] & 尛岢[mod@kerring.me]
 
@@ -20,19 +20,19 @@
 
 - 如需兼容IIS服务，请运行runtime\httpcfg\iis.cmd修改IIS监听地址
 
-- 运行WeBox.bat，选择[安装服务]，即可使用MYSQL+Nginx+PHP等服务
+- 运行WeBox.bat，选择[安装服务]，即可使用Nginx、MariaDB、Redis、PHP等服务
 
-  - Nginx 默认监听地址为 0.0.0.0:80
-  - MySQL 默认监听地址为 127.0.0.1:3306
-  - PHP74 默认监听地址为 127.0.0.1:9701
+  - Nginx   默认监听地址为 0.0.0.0:80
+  - MariaDB 默认监听地址为 127.0.0.1:3306
+  - PHP74   默认监听地址为 127.0.0.1:9701
 
 ### 组件列表
 
-- Redis/3.2.100               https://github.com/MicrosoftArchive/redis/releases
-
-- MySQL/5.7.19                http://www.mysql.com/downloads/mysql
-
 - Nginx/1.20.1                http://www.nginx.org/en/download.html
+
+- MariaDB/10.5.10             https://downloads.mariadb.org/mariadb/10.5.10/#file_type=zip
+
+- Redis/3.2.100               https://github.com/MicrosoftArchive/redis/releases
 
 - PHP/7.4.20                  http://windows.php.net/download
 
@@ -51,7 +51,7 @@
 - 如何建立新站点
   - 创建域名对应的网站目录，例如 webroot\org.example.www
 
-- 如何管理MySQL
+- 如何管理MariaDB
   - 服务器: 127.0.0.1
   - 帐户: root
   - 密码: 空
@@ -66,7 +66,7 @@
   - 建立[WB.WEB]对应目录，并移动原WEB到[WB.WEB]目录
   - 运行WeBox.bat，选择[重建配置]，再选择[重启服务]
 
-- 如何修改MySQL数据目录
+- 如何修改MariaDB数据目录
   - 编辑runtime\config.php，修改[WB.SQL]的值
-  - 建立[WB.SQL]对应目录，并移动原MySQL数据到[WB.SQL]目录
+  - 建立[WB.SQL]对应目录，并移动原MariaDB数据到[WB.SQL]目录
   - 运行WeBox.bat，选择[重建配置]，再选择[重启服务]
