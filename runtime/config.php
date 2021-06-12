@@ -13,26 +13,6 @@ define('WB_MOD', WB_DIR . '/module');
 define('WB_DAT', WB_DIR . '/storage');
 define('WB_WEB', WB_DIR . '/webroot');
 
-//////////////////////////////////////reConfig//////////
-
-echo "备份配置文件...\n\n";
-
-move_config(WB_ETC, WB_DAT);
-
-echo "重建配置文件...\n";
-
-$module = array();
-foreach (glob(WB_CFG . '/*.php') as $php) {
-    $order = $php;
-    $service = '';
-    include($php);
-    $module[$order] = basename($php, '.php') . ' ' . $service;
-}
-
-ksort($module);
-$module = implode(PHP_EOL, $module);
-file_put_contents(WB_ETC . '/module.ini', $module);
-
 //////////////////////////////////////Functions//////////
 
 // 备份配置文件
@@ -107,3 +87,22 @@ function aw_glob($path, $mark = '*', $full = false)
     }
     return $files;
 }
+
+//////////////////////////////////////reConfig//////////
+
+echo "备份配置文件...\n\n";
+
+move_config(WB_ETC, WB_DAT);
+
+echo "重建配置文件...\n";
+
+$module = array();
+foreach (glob(WB_MOD . '/*.php') as $mfile) {
+    include($mfile);
+}
+
+asort($module);
+file_put_contents(
+    WB_ETC . '/module.ini',
+    implode(PHP_EOL, array_keys($module))
+);

@@ -1,10 +1,15 @@
 <?php
 
 $order = '52';
-$service = 'WeBox-php74';
+$srvname = 'WeBox-php74';
+$appname = basename(__FILE__, '.php');
+
+$module[$appname . ' ' . $srvname] = $order;
+
+//////////////////////////////////////Config////////////
 
 build_config(
-    WB_CFG . '/php74',
+    WB_MOD . '/php74/etc',
     WB_ETC . '/php74',
     array(
         '{WB.MOD}' => WB_MOD,
