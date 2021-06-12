@@ -12,6 +12,6 @@ create_config(
     $appname,
     array(
         '{WB.MOD}' => WB_MOD,
-        '{WB.SQL}' => WB_DAT . '/mysql',
+        '{WB.DAT}' => WB_DAT,
     )
 );
