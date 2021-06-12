@@ -8,9 +8,8 @@ $module[$appname . ' ' . $srvname] = $order;
 
 //////////////////////////////////////Config////////////
 
-build_config(
-    WB_MOD . '/redis/etc',
-    WB_ETC . '/redis',
+create_config(
+    $appname,
     array(
         '{WB.IPN}' => WB_LIP,
         '{WB.TMP}' => WB_DAT,

@@ -8,9 +8,8 @@ $module[$appname . ' ' . $srvname] = $order;
 
 //////////////////////////////////////Config////////////
 
-build_config(
-    WB_MOD . '/php74/etc',
-    WB_ETC . '/php74',
+create_config(
+    $appname,
     array(
         '{WB.MOD}' => WB_MOD,
         '{WB.TMP}' => WB_DAT,

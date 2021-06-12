@@ -6,10 +6,10 @@ define('ROOT', dirname(__DIR__));
 define('WB_DIR', str_replace('\\', '/', ROOT));
 define('WB_LIP', gethostbyname($_SERVER['SERVER_NAME']));
 
-define('WB_OWN', WB_DIR . '/ownetc');
 define('WB_ETC', WB_DIR . '/config');
 define('WB_MOD', WB_DIR . '/module');
 
+define('WB_OVE', WB_DIR . '/overlay');
 define('WB_DAT', WB_DIR . '/storage');
 define('WB_WEB', WB_DIR . '/webroot');
 
@@ -25,18 +25,17 @@ function move_config($src, $dst)
     }
 }
 
-// 重建配置文件
-function build_config($src, $dst, $rep = array())
+// 创建配置文件
+function create_config($app, $vars = array())
 {
-    if (is_file($src)) { //文件
-        $content = file_get_contents($src);
-        return file_put_contents($dst, strtr($content, $rep));
+    $dst = WB_ETC . '/'. $app;
+    deep_copy(WB_MOD . '/' . $app . '/etc', $dst);
+    if(is_dir(WB_OVE . '/' . $app)) {
+        deep_copy(WB_OVE . '/' . $app, $dst);
     }
-    if (is_dir($src)) { //目录
-        aw_copy($src, $dst);
-        foreach (aw_glob($dst) as $f) {
-            build_config($f, $f, $rep);
-        }
+    foreach (deep_glob($dst) as $file) {
+        $content = file_get_contents($file);
+        file_put_contents($file, strtr($content, $vars));
     }
 }
 
@@ -55,7 +54,7 @@ function merge_php_ini($path)
 }
 
 // 递归复制目录
-function aw_copy($src, $dst)
+function deep_copy($src, $dst)
 {
     if ($src == $dst || !is_dir($src)) {
         return false;
@@ -67,7 +66,7 @@ function aw_copy($src, $dst)
 }
 
 // 递归获取文件
-function aw_glob($path, $mark = '*', $full = false)
+function deep_glob($path, $mark = '*', $full = false)
 {
     $files = array();
     //获取根目录文件
@@ -82,7 +81,7 @@ function aw_glob($path, $mark = '*', $full = false)
         $result = str_replace('\\', '/', $result);
         foreach ($result as $path) {
             $full && $files[] = $path;
-            $files = array_merge($files, aw_glob($path, $mark, $full));
+            $files = array_merge($files, deep_glob($path, $mark, $full));
         }
     }
     return $files;
