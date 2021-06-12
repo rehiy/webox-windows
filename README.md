@@ -18,8 +18,6 @@
 
 - 解压到任意磁盘根目录，或其它不包含中文及特殊字符的目录
 
-- 如需兼容IIS服务，请运行runtime\httpcfg\iis.cmd修改IIS监听地址
-
 - 运行WeBox.bat，选择[安装服务]，即可使用Nginx、MariaDB、Redis、PHP等服务
 
   - Nginx   默认监听地址为 0.0.0.0:80
