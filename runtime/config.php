@@ -6,8 +6,8 @@ define('ROOT', dirname(__DIR__));
 define('WB_DIR', str_replace('\\', '/', ROOT));
 define('WB_LIP', gethostbyname($_SERVER['SERVER_NAME']));
 
-define('WB_CFG', WB_DIR . '/config');
-define('WB_ETC', WB_DIR . '/deploy');
+define('WB_OWN', WB_DIR . '/ownetc');
+define('WB_ETC', WB_DIR . '/config');
 define('WB_MOD', WB_DIR . '/module');
 
 define('WB_DAT', WB_DIR . '/storage');
@@ -21,7 +21,7 @@ function move_config($src, $dst)
     $src = str_replace('/', '\\', $src);
     $dst = str_replace('/', '\\', $dst);
     if (is_dir($src)) {
-        exec("move /y {$src} {$dst}\deploy-" . TIME);
+        exec("move /y {$src} {$dst}\config-" . TIME);
     }
 }
 

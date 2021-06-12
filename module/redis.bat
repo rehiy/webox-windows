@@ -10,7 +10,7 @@ set xroot=%xroot:~0,-7%
 set xnssm=%xroot%\runtime\nssm.exe
 
 set mroot=%xroot%\module\%~n0
-set mconf=%xroot%\deploy\%~n0\redis.conf
+set mconf=%xroot%\config\%~n0\redis.conf
 
 call :app_runtime
 

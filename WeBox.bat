@@ -62,7 +62,7 @@ call :check_vc2019
   goto :EOF
 
 :module
-  set "mod=deploy\module.ini"
+  set "mod=config\module.ini"
   for /f "eol=; tokens=1,2" %%h in (%mod%) do (
     if "%1"=="create" call :check_service %%i
     if exist module\%%h.bat call module\%%h.bat %1

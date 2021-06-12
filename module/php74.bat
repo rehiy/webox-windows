@@ -10,8 +10,8 @@ set xroot=%xroot:~0,-7%
 set xnssm=%xroot%\runtime\nssm.exe
 
 set mroot=%xroot%\module\%~n0
-set mconf=%xroot%\deploy\%~n0\php.ini
-set nconf=%xroot%\deploy\%~n0\fpm.ini
+set mconf=%xroot%\config\%~n0\php.ini
+set nconf=%xroot%\config\%~n0\fpm.ini
 
 call :app_runtime
 

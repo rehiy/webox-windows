@@ -10,7 +10,7 @@ set xroot=%xroot:~0,-7%
 set xnssm=%xroot%\runtime\nssm.exe
 
 set mroot=%xroot%\module\%~n0
-set mconf=%xroot%\deploy\%~n0\my.ini
+set mconf=%xroot%\config\%~n0\my.ini
 
 call :app_runtime
 
