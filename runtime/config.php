@@ -61,7 +61,7 @@ function deep_copy($src, $dst)
     }
     $src = str_replace('/', '\\', $src);
     $dst = str_replace('/', '\\', $dst);
-    exec("xcopy {$src} {$dst} /e /i /r /q", $a, $r);
+    exec("xcopy {$src} {$dst} /e /i /r /y /q", $a, $r);
     return !$r;
 }
 
