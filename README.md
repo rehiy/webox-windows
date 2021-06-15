@@ -40,12 +40,12 @@
 
 ### 常见问题
 
-- 修改服务器参数
-  - 请修改config目录内对应的文件
-
 - 如何管理模块
-  - config\*.php 表示已经启用的模块
-  - config\*.dis 表示已经禁用的模块
+  - module\*.php 表示已经启用的模块
+  - module\*.dis 表示已经禁用的模块
+
+- 修改服务器参数
+  - 参照config目录，在overlay目录内建立需要覆盖的配置文件
 
 - 如何建立新站点
   - 创建域名对应的网站目录，例如 webroot\org.example.www
