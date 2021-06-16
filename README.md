@@ -55,11 +55,6 @@
   - 帐户: root
   - 密码: 空
 
-- 如何切换PHP版本
-  - 确保服务未安装，否则请[卸载服务]
-  - 编辑Nginx配置config\nginx\server\*，修改suffix配置
-  - 运行WeBox.bat，选择[重建配置]，再选择[重启服务]
-
 - 如何修改WEB根目录
   - 编辑runtime\config.php，修改[WB.WEB]的值
   - 建立[WB.WEB]对应目录，并移动原WEB到[WB.WEB]目录
